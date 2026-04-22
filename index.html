@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>For Deepak ❤️</title>
+    <title>Happy Birthday Deepak ❤️</title>
 
     <style>
         body {
@@ -17,6 +17,10 @@
             margin-top: 80px;
         }
 
+        h1 {
+            color: #ff4d6d;
+        }
+
         button {
             padding: 15px 30px;
             font-size: 18px;
@@ -28,11 +32,11 @@
         }
 
         #message {
-            display: none;
             margin-top: 30px;
             font-size: 22px;
             padding: 20px;
             line-height: 1.6;
+            white-space: pre-line;
         }
 
         img {
@@ -61,40 +65,57 @@
 </audio>
 
 <div class="container">
-    <h1>Hey Deepak ❤️</h1>
-    <p>I made something just for you...</p>
+    <h1>🎂 Happy Birthday Deepak ❤️</h1>
+    <p>Click below... I have something for you 💖</p>
 
-    <button onclick="startSurprise()">Click me 💖</button>
+    <button onclick="startSurprise()">Start 💝</button>
 
-    <div id="message">
-        <p>From the moment you came into my life,<br>
-        everything started to feel right.</p>
+    <div id="message"></div>
 
-        <p>Your smile makes my darkest days bright,<br>
-        your love feels warm, safe, and light.</p>
-
-        <p>In every heartbeat, in everything I do,<br>
-        somewhere in it… there is always you.</p>
-
-        <p>I may not say it every day,<br>
-        but I’m lucky to have you in every way.</p>
-
-        <p>Forever yours,<br>
-        Mounika 💕</p>
-
-        <!-- Photos -->
-        <div>
-            <img src="photo1.jpg.jpeg">
-            <img src="photo2.jpg.jpeg">
-        </div>
+    <!-- Photos -->
+    <div id="photos" style="display:none;">
+        <img src="photo1.jpg">
+        <img src="photo2.jpg">
     </div>
 </div>
 
 <script>
-function startSurprise() {
-    document.getElementById("message").style.display = "block";
-    document.getElementById("music").play();
+let text = `Hey Deepak ❤️
 
+From the moment you came into my life,
+everything started to feel right.
+
+Your smile makes my darkest days bright,
+your love feels warm, safe, and light.
+
+In every heartbeat, in everything I do,
+somewhere in it… there is always you.
+
+I may not say it every day,
+but I’m lucky to have you in every way.
+
+Forever yours,
+Mounika 💕`;
+
+let i = 0;
+
+function startSurprise() {
+    document.getElementById("music").play();
+    typeWriter();
+    createHearts();
+}
+
+function typeWriter() {
+    if (i < text.length) {
+        document.getElementById("message").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 40);
+    } else {
+        document.getElementById("photos").style.display = "block";
+    }
+}
+
+function createHearts() {
     for (let i = 0; i < 25; i++) {
         let heart = document.createElement("div");
         heart.innerHTML = "❤️";
